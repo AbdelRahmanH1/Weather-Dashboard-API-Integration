@@ -12,6 +12,11 @@ import {
 const app = express();
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: '*',
+  }),
+);
 await connectRedis();
 
 app.use(rateLimiter(RATE_LIMITER_LIMIT, RATE_LIMITER_WINDOW));
