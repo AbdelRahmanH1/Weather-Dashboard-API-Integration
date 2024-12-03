@@ -85,10 +85,10 @@ The Weather Dashboard API is a backend service built with Express.js that integr
 
 2. Get 5-Day Weather Forecast
 
-- Endpoint: **v1/weather/forecast**
-- Method: **GET**
-- Query Parameters: **cityname** (string) - Name of the city.
-- Response:
+  - Endpoint: **v1/weather/forecast**
+  - Method: **GET**
+  - Query Parameters: **cityname** (string) - Name of the city.
+  - Response:
 
 ```bash
  {
