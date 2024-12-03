@@ -43,14 +43,14 @@ The Weather Dashboard API is a backend service built with Express.js that integr
    ```
 3. Set up the **.env** file: Create a **.env** file in the root directory with the following keys:
 
-```bash
-  PORT=4000  # Application port
-  REDIS_HOST=localhost
-  REDIS_PORT=6379
-  RATE_LIMITER_LIMIT=3  # Maximum number of requests allowed per window
-  RATE_LIMITER_WINDOW=60 # Time window in seconds
-  WEATHER_KEY=<yourAPIKEY>
-```
+   ```bash
+   PORT=4000  # Application port
+   REDIS_HOST=localhost
+   REDIS_PORT=6379
+   RATE_LIMITER_LIMIT=3  # Maximum number of requests allowed per window
+   RATE_LIMITER_WINDOW=60 # Time window in seconds
+   WEATHER_KEY=<yourAPIKEY>
+   ```
 
 4. Start the application:
    ```bash
@@ -66,22 +66,22 @@ The Weather Dashboard API is a backend service built with Express.js that integr
 - Query Parameters: **cityname** (string) - Name of the city.
 - Response:
 
-  ```bash
-    {
-    "success": true,
-    "message": "Weather data retrieved",
-    "data": {
-        "weatherData": {
-            "cityName": "New York",
-            "temperature": 277.29,
-            "weatherDescription": "scattered clouds",
-            "humidity": 59,
-            "windSpeed": 4.63
+```bash
+  {
+  "success": true,
+  "message": "Weather data retrieved",
+  "data": {
+      "weatherData": {
+          "cityName": "New York",
+          "temperature": 277.29,
+          "weatherDescription": "scattered clouds",
+          "humidity": 59,
+          "windSpeed": 4.63
+      }
     }
-    }
-    }
+  }
 
-  ```
+```
 
 2. Get 5-Day Weather Forecast
 
@@ -89,41 +89,42 @@ The Weather Dashboard API is a backend service built with Express.js that integr
 - Method: **GET**
 - Query Parameters: **cityname** (string) - Name of the city.
 - Response:
-  ```bash
-   {
-    "success": true,
-    "message": "Forecast data retrieved",
-    "data": {
-        "forecastData": [
-            {
-                "date": "2024-12-03",
-                "avgTemp": 274.01,
-                "description": "broken clouds"
-            },
-            {
-                "date": "2024-12-03",
-                "avgTemp": 274.01,
-                "description": "broken clouds"
-            },
-            {
-                "date": "2024-12-03",
-                "avgTemp": 274.01,
-                "description": "broken clouds"
-            },
-            {
-                "date": "2024-12-03",
-                "avgTemp": 274.01,
-                "description": "broken clouds"
-            },
-            {
-                "date": "2024-12-03",
-                "avgTemp": 274.01,
-                "description": "broken clouds"
-            }
-        ]
-    }
+
+```bash
+ {
+  "success": true,
+  "message": "Forecast data retrieved",
+  "data": {
+      "forecastData": [
+          {
+              "date": "2024-12-03",
+              "avgTemp": 274.01,
+              "description": "broken clouds"
+          },
+          {
+              "date": "2024-12-03",
+              "avgTemp": 274.01,
+              "description": "broken clouds"
+          },
+          {
+              "date": "2024-12-03",
+              "avgTemp": 274.01,
+              "description": "broken clouds"
+          },
+          {
+              "date": "2024-12-03",
+              "avgTemp": 274.01,
+              "description": "broken clouds"
+          },
+          {
+              "date": "2024-12-03",
+              "avgTemp": 274.01,
+              "description": "broken clouds"
+          }
+      ]
   }
-  ```
+}
+```
 
 ## Validation
 
@@ -161,9 +162,10 @@ The API leverages Redis to cache data at multiple levels to reduce redundant API
 ## Testing
 
 - Unit tests for external API calls are implemented using Jest and jest-mock-axios.
-- ```bash
-    npm test
-  ```
+
+```bash
+   npm test
+```
 
 ## Error Handling
 
@@ -184,8 +186,8 @@ In case of an error, the API returns a JSON response with the following structur
 
 1. Validation Errors:
 
-- Occur when required query parameters or inputs are missing or invalid.
-- Example:
+  - Occur when required query parameters or inputs are missing or invalid.
+  - Example:
 
   ```bash
   {
@@ -196,8 +198,8 @@ In case of an error, the API returns a JSON response with the following structur
 
 2. External API Errors:
 
-- Handled when the weather API fails, returns an invalid response, or the requested city is not found.
-- Example:
+  - Handled when the weather API fails, returns an invalid response, or the requested city is not found.
+  - Example:
 
   ```bash
   {
@@ -208,8 +210,8 @@ In case of an error, the API returns a JSON response with the following structur
 
 3. Rate Limiting Errors:
 
-- Triggered when a client exceeds the number of allowed requests within the specified time window.
-- Example:
+  - Triggered when a client exceeds the number of allowed requests within the specified time window.
+  - Example:
 
   ```bash
   {
@@ -220,8 +222,8 @@ In case of an error, the API returns a JSON response with the following structur
 
 4. Server Errors:
 
-- For unexpected issues such as Redis connection failures or internal server errors.
-- Example:
+  - For unexpected issues such as Redis connection failures or internal server errors.
+  - Example:
 
   ```bash
   {
