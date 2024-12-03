@@ -61,10 +61,10 @@ The Weather Dashboard API is a backend service built with Express.js that integr
 
 1. Get Current Weather by City
 
-- Endpoint: **v1/weather**
-- Method: **GET**
-- Query Parameters: **cityname** (string) - Name of the city.
-- Response:
+ * - Endpoint: **v1/weather**
+ * - Method: **GET**
+ * - Query Parameters: **cityname** (string) - Name of the city.
+ *  - Response:
 
 ```bash
   {
@@ -85,10 +85,10 @@ The Weather Dashboard API is a backend service built with Express.js that integr
 
 2. Get 5-Day Weather Forecast
 
-  - Endpoint: **v1/weather/forecast**
-  - Method: **GET**
-  - Query Parameters: **cityname** (string) - Name of the city.
-  - Response:
+  * - Endpoint: **v1/weather/forecast**
+  * - Method: **GET**
+  * - Query Parameters: **cityname** (string) - Name of the city.
+  * - Response:
 
 ```bash
  {
@@ -141,17 +141,17 @@ The API leverages Redis to cache data at multiple levels to reduce redundant API
 
 1. Coordinates Caching:
 
-- When retrieving weather data for a city, the API first fetches the city’s latitude and longitude.
-- These coordinates are cached for 7 days to avoid redundant lookups for the same city.
+* - When retrieving weather data for a city, the API first fetches the city’s latitude and longitude.
+* - These coordinates are cached for 7 days to avoid redundant lookups for the same city.
 
 2. Current Weather Caching:
 
-- After obtaining the weather data for a city, the current weather information is cached for 1 hour
-- This reduces the number of requests made to the external weather API for frequently queried cities
+* - After obtaining the weather data for a city, the current weather information is cached for 1 hour
+* - This reduces the number of requests made to the external weather API for frequently queried cities
 
 3. 5-Day Forecast Caching:
 
-- Forecast data for the next 5 days is cached for 6 hours, ensuring the most recent forecast while minimizing API calls.
+* - Forecast data for the next 5 days is cached for 6 hours, ensuring the most recent forecast while minimizing API calls.
 
 ### Benefits of Caching
 
@@ -173,7 +173,7 @@ All API errors are handled uniformly to provide a consistent response format.
 
 ### Error Response Structure
 
-In case of an error, the API returns a JSON response with the following structure:
+- In case of an error, the API returns a JSON response with the following structure:
 
     ```bash
         {
@@ -186,8 +186,8 @@ In case of an error, the API returns a JSON response with the following structur
 
 1. Validation Errors:
 
-  - Occur when required query parameters or inputs are missing or invalid.
-  - Example:
+  * - Occur when required query parameters or inputs are missing or invalid.
+  * - Example:
 
   ```bash
   {
@@ -198,8 +198,8 @@ In case of an error, the API returns a JSON response with the following structur
 
 2. External API Errors:
 
-  - Handled when the weather API fails, returns an invalid response, or the requested city is not found.
-  - Example:
+  * - Handled when the weather API fails, returns an invalid response, or the requested city is not found.
+  * - Example:
 
   ```bash
   {
@@ -210,8 +210,8 @@ In case of an error, the API returns a JSON response with the following structur
 
 3. Rate Limiting Errors:
 
-  - Triggered when a client exceeds the number of allowed requests within the specified time window.
-  - Example:
+  * - Triggered when a client exceeds the number of allowed requests within the specified time window.
+  * - Example:
 
   ```bash
   {
@@ -222,8 +222,8 @@ In case of an error, the API returns a JSON response with the following structur
 
 4. Server Errors:
 
-  - For unexpected issues such as Redis connection failures or internal server errors.
-  - Example:
+  * - For unexpected issues such as Redis connection failures or internal server errors.
+  * - Example:
 
   ```bash
   {
